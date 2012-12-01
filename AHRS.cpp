@@ -91,7 +91,7 @@ void AHRSClass::filter_()
     kalmanPhi_.predict(&calibratedData.p, &orientation.phi, &Timer.dt);
     kalmanPsi_.predict(&calibratedData.q, &orientation.psi, &Timer.dt);
     
-    double magnitude = magnitude_(calibratedData.x, calibratedData.x, calibratedData.x);
+    double magnitude = magnitude_(calibratedData.x, calibratedData.y, calibratedData.z);
     if(magnitude > 14 || magnitude < 7.14)
     {
 	kalmanPhi_.update(&accelAngles.phi, &orientation.phi);
